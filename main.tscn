@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dcib1f863cncv"]
+[gd_scene load_steps=13 format=3 uid="uid://dcib1f863cncv"]
 
 [ext_resource type="Texture2D" uid="uid://buylpr5gd5vx3" path="res://Green.png" id="1_gey2k"]
 [ext_resource type="PackedScene" uid="uid://b3e6bwnjewn8a" path="res://ball/ball.tscn" id="1_wwafb"]
@@ -463,6 +463,9 @@ sources/0 = SubResource("TileSetAtlasSource_ikl2k")
 [sub_resource type="Theme" id="Theme_se7xt"]
 default_font_size = 30
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_381t7"]
+size = Vector2(303, 1)
+
 [node name="Main" type="Node2D"]
 scale = Vector2(2, 2)
 
@@ -508,4 +511,10 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "0 | 0"
 script = ExtResource("7_klvi6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(152, 319.5)
+shape = SubResource("RectangleShape2D_381t7")
+
+[connection signal="body_entered" from="Area2D" to="UserInterface/scoreLabel" method="_on_area_2d_body_entered"]

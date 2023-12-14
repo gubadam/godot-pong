@@ -17,3 +17,8 @@ func _on_p1_score():
 
 func _on_p2_score():
 	score2 += 1
+
+
+func _on_area_2d_body_entered(body):
+	print(body.name == "Ball")
+	pass # Replace with function body.
