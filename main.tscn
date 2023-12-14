@@ -464,7 +464,7 @@ sources/0 = SubResource("TileSetAtlasSource_ikl2k")
 default_font_size = 30
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_381t7"]
-size = Vector2(303, 1)
+size = Vector2(319.5, 1)
 
 [node name="Main" type="Node2D"]
 scale = Vector2(2, 2)
@@ -517,4 +517,11 @@ script = ExtResource("7_klvi6")
 position = Vector2(152, 319.5)
 shape = SubResource("RectangleShape2D_381t7")
 
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(479.75, 319.5)
+shape = SubResource("RectangleShape2D_381t7")
+
 [connection signal="body_entered" from="Area2D" to="UserInterface/scoreLabel" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="UserInterface/scoreLabel" method="_on_area_2d_2_body_entered"]
