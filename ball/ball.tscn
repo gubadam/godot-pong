@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3e6bwnjewn8a"]
+
+[ext_resource type="Texture2D" uid="uid://dg33h1e1x1ywu" path="res://ball/Double Jump (32x32).png" id="1_4v37d"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_05c6t"]
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6j1mj"]
+
+[node name="Ball" type="RigidBody2D"]
+rotation = -1.5708
+mass = 0.35
+physics_material_override = SubResource("PhysicsMaterial_05c6t")
+gravity_scale = 0.6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_6j1mj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_4v37d")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2jdp4xt0doqw"]
+
+[ext_resource type="Texture2D" uid="uid://c3r3mufn5mvx0" path="res://paddle/Grey Off.png" id="1_dk5df"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vuqau"]
+
+[node name="paddle" type="RigidBody2D"]
+mass = 1e+07
+physics_material_override = SubResource("PhysicsMaterial_vuqau")
+gravity_scale = 0.0
+lock_rotation = true
+freeze_mode = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-4, -5)
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(-24, 0, -30, 4, -30, 9, -30, 9, 34, 9, 34, 9, 34, 4, 28, 0, 2, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("1_dk5df")
