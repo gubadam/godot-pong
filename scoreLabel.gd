@@ -2,10 +2,14 @@ extends Label
 
 var score1 = 0
 var score2 = 0
+var org_x
+var org_y
+signal test
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	org_x = $"../../Ball".position.x
+	org_y = $"../../Ball".position.y
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,11 +22,12 @@ func _on_p1_score():
 func _on_p2_score():
 	score2 += 1
 
-
 func _on_area_2d_body_entered(body):
-	print(body.name == "Ball")
-	_on_p2_score()
+	if (body.name == "Ball"):
+		_on_p2_score()
+		test.emit()
 
 func _on_area_2d_2_body_entered(body):
-	print(body.name == "Ball")
-	_on_p1_score()
+	if (body.name == "Ball"):
+		_on_p1_score()
+		test.emit()

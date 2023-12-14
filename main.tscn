@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dcib1f863cncv"]
+[gd_scene load_steps=14 format=3 uid="uid://dcib1f863cncv"]
 
 [ext_resource type="Texture2D" uid="uid://buylpr5gd5vx3" path="res://Green.png" id="1_gey2k"]
 [ext_resource type="PackedScene" uid="uid://b3e6bwnjewn8a" path="res://ball/ball.tscn" id="1_wwafb"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d2jdp4xt0doqw" path="res://paddle/paddle.tscn" id="4_lvexh"]
 [ext_resource type="Script" path="res://paddle/paddle2.gd" id="5_mc43b"]
 [ext_resource type="Script" path="res://scoreLabel.gd" id="7_klvi6"]
+[ext_resource type="Script" path="res://ball/ball.gd" id="7_m37qo"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yic5x"]
 bounce = 0.5
@@ -492,6 +493,7 @@ script = ExtResource("5_mc43b")
 
 [node name="Ball" parent="." instance=ExtResource("1_wwafb")]
 position = Vector2(270, 28.5)
+script = ExtResource("7_m37qo")
 
 [node name="UserInterface" type="Control" parent="."]
 layout_mode = 3
@@ -523,5 +525,6 @@ shape = SubResource("RectangleShape2D_381t7")
 position = Vector2(479.75, 319.5)
 shape = SubResource("RectangleShape2D_381t7")
 
+[connection signal="test" from="UserInterface/scoreLabel" to="Ball" method="_on_score_label_test"]
 [connection signal="body_entered" from="Area2D" to="UserInterface/scoreLabel" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="UserInterface/scoreLabel" method="_on_area_2d_2_body_entered"]
