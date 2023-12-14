@@ -6,21 +6,21 @@ var should_reset = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	org_x = position.x
-	org_y = position.y
-
+	#org_x = global_position.x
+	org_x = randi_range(64, get_viewport_rect().size.x - 64)
+	org_y = global_position.y
+	global_position.x = org_x
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if should_reset:
 		print('test')
 		call_deferred('reset')
-	pass
 
 func reset():
 	should_reset = false
 	freeze = true
-	global_position.x = org_x
+	global_position.x = randi_range(64, get_viewport_rect().size.x - 64)
 	global_position.y = org_y
 	linear_velocity = Vector2.ZERO
 	gravity_scale = 0
