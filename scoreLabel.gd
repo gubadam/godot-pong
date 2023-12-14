@@ -2,14 +2,11 @@ extends Label
 
 var score1 = 0
 var score2 = 0
-var org_x
-var org_y
 signal test
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	org_x = $"../../Ball".position.x
-	org_y = $"../../Ball".position.y
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

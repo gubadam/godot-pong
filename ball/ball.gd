@@ -19,9 +19,14 @@ func _process(delta):
 
 func reset():
 	should_reset = false
-	position.x = org_x
-	position.y = org_y
-	set_global_pos(Vector2(org_x, org_y))
+	freeze = true
+	global_position.x = org_x
+	global_position.y = org_y
+	linear_velocity = Vector2.ZERO
+	gravity_scale = 0
+	await get_tree().create_timer(3).timeout
+	gravity_scale = 1
+	freeze = false
 
 func _on_score_label_test():
 	should_reset = true
